@@ -1,4 +1,4 @@
-# main file for FInnHub API and Kafka integration
+# Producer file for FinnHub API and Kafka integration
 import os
 import ast
 import json
@@ -56,4 +56,3 @@ class FinnhubProducer:
 
 if __name__ == "__main__":
     FinnhubProducer()
-    
