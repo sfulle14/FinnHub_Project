@@ -56,3 +56,4 @@ class FinnhubProducer:
 
 if __name__ == "__main__":
     FinnhubProducer()
+    
