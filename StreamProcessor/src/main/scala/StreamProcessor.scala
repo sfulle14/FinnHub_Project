@@ -1,3 +1,4 @@
+
 // this is the main Spark app responsible for stream processing
 // it retrieves messages from Kafka, transforms it in Spark engine and loads into Cassandra.
 
@@ -45,8 +46,18 @@ object StreamProcessor {
         import spark.implicits._ 
 
         //read streams from Kafka
+        val inputDF = spark 
+            .readStream
+            .format("kafka")
+            .option("kafka.bootstrap.servers", settings.kafka("server_address"))
+            .option("subscribe", settings.kafka("topic_market"))
+            .option("minPartitions", settings.kafka("min_partitions"))
+            .option("maxOffsetsPerTrigger", settings.spark("max_offsets_per_trigger"))
+            .option("useDeprecatedOffsetFetching", settings.spark("deprecated_offsets"))
+            .load()
 
         //explode the data from avro
+
 
         //rename columns and add proper timestamps
 
@@ -60,5 +71,6 @@ object StreamProcessor {
 
         //let query await termination
         spark.streams.awaitAnyTermination()
+
     }
 }

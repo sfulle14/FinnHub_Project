@@ -16,7 +16,7 @@ class Settings(config: Config) extends Serializable {
 
     var kafka: Map[String, String] = {
         Map(
-            "server_address" -> s"${config.getString("kafka.server)}:${config.getString("kafka.port")}",
+            "server_address" -> s"${config.getString("kafka.server")}:${config.getString("kafka.port")}",
             "topic_market" -> config.getString("kafka.topics.market"),
             "min_partitions" -> config.getString("kafka.min_partitions.StreamProcessor")
         )
@@ -26,7 +26,7 @@ class Settings(config: Config) extends Serializable {
         Map(
             "master" -> config.getString("spark.master"),
             "appName" -> config.getString("spark.appName.StreamProcessor"),
-            "max_offsets_per_trigger -> config.getString("spar.max_offsets_per_trigger.StreamProcessor"),
+            "max_offsets_per_trigger" -> config.getString("spar.max_offsets_per_trigger.StreamProcessor"),
             "shuffle_partitions" -> config.getString("spark.shuffle_partitions.StreamProcessor"),
             "deprecated_offsets" -> config.getString("spark.deprecated_offsets.StreamProcessor")
         )
