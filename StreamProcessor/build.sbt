@@ -26,7 +26,7 @@ javaOptions := Seq("-Dconfig.resource=deployment.conf")
 assemblyJarName in assembly := "streamprocessor-assembly-1-0.jar"
 
 assemblyMergeStrategy in assembly := {
-    case "reference.conf => MergeStrategy.concat
+    case "reference.conf" => MergeStrategy.concat
     case "META-INF/services/org.apache.spark.sql.sources.DataSourceRegiser" => MergeStrategy.concat
     case PathList("META-INF", xs@_*) => MergeStrategy.discord
     case _ => MergeStrategy.first
