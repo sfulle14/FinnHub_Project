@@ -19,5 +19,12 @@ All applications are containerized into **Docker** containters, which are orches
 
 **Visualization layer**
 
+## Dashboard
+
+You can access Grafana with a dashboard on localhost:3000 by running the following command:
+```
+kubectl port-forward -n pipeline service/grafana 3000:3000
+```
+
 
 ## Setup & Deployment
